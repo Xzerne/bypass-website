@@ -4,22 +4,20 @@ async function fetchData() {
     const copyButton = document.getElementById('copyButton');
     const button = document.querySelector('button');
 
-    
     if (!input.trim() || !input.startsWith('https://')) {
         showNotification('PLEASE ENTER A VALID URL');
         resultDiv.style.display = 'none';
         copyButton.style.display = 'none'; 
         updateButtonState(false); 
-        return;
+        return; 
     }
 
-    
     updateButtonState(true);
 
     try {
         const apiUrl = `https://nakano-miku-api-steel.vercel.app/bypass?url=${encodeURIComponent(input)}`;
         const proxyUrl = `https://cors-anywhere.herokuapp.com/${apiUrl}`;
-        console.log('Fetching data from:', proxyUrl);
+        console.log('FETCHING DATA FROM:', proxyUrl);
 
         const response = await fetch(proxyUrl, {
             method: 'GET',
@@ -30,22 +28,21 @@ async function fetchData() {
         });
 
         if (!response.ok) {
-            
             const errorData = await response.json();
             console.error('API Error:', errorData.error);
-            resultDiv.textContent = `RESULT: ${errorData.error || 'API Error occurred'}`;
+            resultDiv.textContent = `RESULT: ${errorData.error || 'API ERROR OCCURRED'}`;
             resultDiv.style.display = 'block';
-            copyButton.style.display = 'none';
-            showNotification('Error fetching data. Please try again.');
+            copyButton.style.display = 'none'; 
+            showNotification('ERROR FETCHING DATA. PLEASE TRY AGAIN.');
             return; 
         }
 
         const data = await response.json();
-        console.log('Data received:', data);
+        console.log('DATA RECEIVED:', data);
 
-        resultDiv.textContent = `RESULT: ${data.bypassed || 'DATA HAS NO "bypassed"'}`;
+        resultDiv.textContent = `RESULT: ${data.bypassed || 'unfinied'}`;
         resultDiv.style.display = 'block';
-        copyButton.style.display = 'block';
+        copyButton.style.display = 'block'; 
         showNotification('BYPASSED SUCCESSFULLY!');
         document.getElementById('bypassAgainButton').style.display = 'block'; 
     } catch (error) {
@@ -72,22 +69,24 @@ function showNotification(message) {
     notification.classList.add('show');
     notification.classList.remove('hide');
 
-    
+    if (message === 'PLEASE ENTER A VALID URL') { 
+        updateButtonState(false); 
+    }
+
     setTimeout(() => {
         notification.classList.remove('show');
         notification.classList.add('hide');
+        updateButtonState(true); 
     }, 3000);
 }
 
-
 function updateButtonState(isValid) {
     const button = document.querySelector('button');
-    button.disabled = !isValid; 
+    button.disabled = !isValid;
     if (isValid) {
         button.dispatchEvent(new Event('change')); 
     }
 }
-
 
 document.querySelector('#notification .close-btn').addEventListener('click', () => {
     const notification = document.getElementById('notification');
@@ -113,6 +112,10 @@ function toggleSupportInfo() {
 function bypassAgain() {
     const resultText = document.getElementById('result').textContent.replace('RESULT: ', '');
     document.getElementById('inputBox').value = resultText;
-    
     location.reload(); 
 }
+
+document.getElementById('menuButton').addEventListener('click', () => {
+    const menuBar = document.getElementById('menuBar');
+    menuBar.classList.toggle('show');
+});
