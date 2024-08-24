@@ -40,7 +40,7 @@ async function fetchData() {
         const data = await response.json();
         console.log('DATA RECEIVED:', data);
 
-        resultDiv.textContent = `RESULT: ${data.bypassed || 'unfinied'}`;
+        resultDiv.textContent = `RESULT: ${data.bypassed || 'undefined'}`;
         resultDiv.style.display = 'block';
         copyButton.style.display = 'block'; 
         showNotification('BYPASSED SUCCESSFULLY!');
