@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@400;700&display=swap');
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('https://cdn.discordapp.com/attachments/1261997985068355638/1276829456819945502/Tonari_no_Kaibutsu_kun_Wallpaper.jpg?ex=66caf398&is=66c9a218&hm=8166c1fbf1e62f60bc18996c6fd60ca11b0d8816bc1968200434cecf72128f7f&') no-repeat center center fixed;
+    background-size: cover;
+    color: #f5f5f5;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+h1 {
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    border-bottom: 3px solid #e0e0e0;
+    letter-spacing: 1px;
+}
+
+
+input[type="text"] {
+    padding: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    font-size: 1em;
+    width: 80%;
+    max-width: 500px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 10px 0;
+    caret-color: #ffcc00;
+}
+
+
+button {
+    padding: 15px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-family: 'Roboto', sans-serif;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: rgba(255, 255, 255, 0.7);
+    transform: scale(0.95);
+}
+
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #ffcc00;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid #ffcc00;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+    letter-spacing: 0.5px;
+    display: none;
+}
+
+
+#copyButton {
+    padding: 15px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #009688; 
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-family: 'Roboto', sans-serif;
+    display: none; 
+}
+
+#copyButton:hover {
+    background-color: #00796b; 
+    transform: scale(1.05);
+}
+
+#copyButton:active {
+    background-color: #004d40; /* Màu nền khi nhấn nút */
+    transform: scale(0.95);
+}
+
+
+
+
+.discord-button {
+    display: flex;
+    align-items: center;
+    background: #7289da;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 20px;
+    font-size: 1em;
+    text-decoration: none;
+    position: relative;
+}
+
+.discord-button img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.discord-button:hover {
+    background: #5b6eae;
+    transform: scale(1.05);
+}
+
+.discord-button:active {
+    background: #4a5d9b;
+    transform: scale(0.95);
+}
+
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    z-index: 2;
+    max-width: 300px;
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.notification.show {
+    display: flex;
+    opacity: 1;
+}
+
+.notification.hide {
+    display: none;
+}
+
+.notification.hide-animation {
+    animation: slideOut 0.3s ease-in-out;
+}
+
+.notification img {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    border-radius: 50%;
+}
+
+.notification .close-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+
+#supportingButton {
+    padding: 15px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(0, 150, 136, 0.8);
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-family: 'Roboto', sans-serif;
+}
+
+#supportingButton:hover {
+    background-color: rgba(0, 150, 136, 1);
+    transform: scale(1.05);
+}
+
+#supportingButton:active {
+    background-color: rgba(0, 150, 136, 0.8);
+    transform: scale(0.95);
+}
+
+.info-panel {
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    font-family: 'Roboto', sans-serif;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+.info-panel h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #ffcc00;
+}
+
+.info-panel ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.info-panel li {
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+
+button[disabled] {
+    background-color: #b0bec5;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+
+button.active {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+button:hover:enabled {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+
+#bypassAgainButton {
+    padding: 15px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #00BCD4; /* Light blue */
+    color: #fff; 
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-family: 'Roboto', sans-serif;
+}
+
+#bypassAgainButton:hover {
+    background-color: #009688; 
+    transform: scale(1.05);
+}
+
+#bypassAgainButton:active {
+    background-color: #00796b;
+    transform: scale(0.95);
+}
+
