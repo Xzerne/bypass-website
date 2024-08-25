@@ -10,8 +10,10 @@ body {
     background-size: cover;
     color: #f5f5f5;
     text-align: center;
-    overflow: hidden;
+    overflow-y: scroll;
+    
 }
+
 
 
 h1 {
@@ -420,4 +422,16 @@ button:hover:enabled {
 
 .spacer {
     height: 100px;
+}
+
+/* Spotify */
+.spotify-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.spotify-container iframe {
+    width: 300px; 
+    height: 200px; 
+    border: none;
 }
