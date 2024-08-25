@@ -22,14 +22,13 @@ async function fetchData() {
         const response = await fetch(proxyUrl, {
             method: 'GET',
             headers: {
-                "Access-Control-Allow-Origin": '*',
                 "Content-Type": 'application/json',
             }
         });
 
         if (!response.ok) {
             const errorData = await response.json();
-            console.error('API Error:', errorData.error);
+            console.error('API ERROR:', errorData.error);
             resultDiv.textContent = `RESULT: ${errorData.error || 'API ERROR OCCURRED'}`;
             resultDiv.style.display = 'block';
             copyButton.style.display = 'none'; 
@@ -53,6 +52,7 @@ async function fetchData() {
         showNotification('ERROR FETCHING DATA. PLEASE TRY AGAIN.');
     }
 }
+
 
 function copyToClipboard() {
     const resultText = document.getElementById('result').textContent.replace('RESULT: ', '');
