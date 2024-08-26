@@ -6,7 +6,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('My Little Monster.jpeg') no-repeat center center fixed;
+    background: url('My Little Monster.jpeg') no-repeat center center fixed;
     background-size: cover;
     color: #f5f5f5;
     text-align: center;
