@@ -15,16 +15,18 @@ async function fetchData() {
     updateButtonState(true);
 
     try {
-        const apiUrl = `https://nakano-miku-api-steel.vercel.app/bypass?url=${encodeURIComponent(input)}`;
-        const proxyUrl = `https://cors-anywhere.herokuapp.com/${apiUrl}`;
-        console.log('FETCHING DATA FROM:', proxyUrl);
+        const apiUrl = `https://nakano-miku-api-steel.vercel.app/bypass?url=${encodeURIComponent(document.getElementById('inputBox').value)}`;
+        
+const proxyUrl = `https://proxy.cors.sh/${apiUrl}`;
+console.log('FETCHING DATA FROM:', proxyUrl);
 
         const response = await fetch(proxyUrl, {
-            method: 'GET',
-            headers: {
-                "Content-Type": 'application/json',
-            }
-        });
+    method: 'GET',
+    headers: {
+        "Content-Type": 'application/json',
+    }
+});
+
 
         if (!response.ok) {
             const errorData = await response.json();
@@ -119,3 +121,4 @@ document.getElementById('menuButton').addEventListener('click', () => {
     const menuBar = document.getElementById('menuBar');
     menuBar.classList.toggle('show');
 });
+
