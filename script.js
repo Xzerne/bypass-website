@@ -40,6 +40,10 @@ console.log('FETCHING DATA FROM:', proxyUrl);
 
         const data = await response.json();
         console.log('DATA RECEIVED:', data);
+        if (data.bypassed == 'Delta bypass hcaptcha patched. We only support links with out hcaptcha.') {
+  resultDiv.textContent = `RESULT: undefined`;
+  showNotification('ERROR FETCHING DATA. PLEASE TRY AGAIN.');
+}
 
         resultDiv.textContent = `RESULT: ${data.bypassed || 'undefined'}`;
         resultDiv.style.display = 'block';
