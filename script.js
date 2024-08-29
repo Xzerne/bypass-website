@@ -15,7 +15,7 @@ async function fetchData() {
     updateButtonState(true);
 
     try {
-        const apiUrl = `https://nakano-miku-api-steel.vercel.app/bypass?url=${encodeURIComponent(document.getElementById('inputBox').value)}`;
+        const apiUrl = `http://181.215.58.12:1077/bypass?url=${encodeURIComponent(document.getElementById('inputBox').value)}`;
         
 const proxyUrl = `https://proxy.cors.sh/${apiUrl}`;
 console.log('FETCHING DATA FROM:', proxyUrl);
