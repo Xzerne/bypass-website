@@ -21,7 +21,7 @@ async function fetchData() {
         const response = await fetch(proxyUrl, {
     method: 'GET',
     headers: {
-        "Content-Type": 'application/json',
+        "Content-Type": 'application/json'
     }
 });
 
