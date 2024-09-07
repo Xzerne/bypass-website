@@ -15,16 +15,16 @@ async function fetchData() {
     updateButtonState(true);
 
     try {
-        const apiUrl = `https://otaku-is-unbreakable-api.vercel.app/bypass?url=${encodeURIComponent(document.getElementById('inputBox').value)}`;
-        const proxyUrl = `https://thingproxy.freeboard.io/fetch/${apiUrl}`;
-        
-        const response = await fetch(proxyUrl, {
-    method: 'GET',
-    headers: {
-        "Content-Type": 'application/json'
-    }
-});
+        const apiUrl = `https://otaku-is-unbreakable-api.vercel.app/bypass?url=${encodeURIComponent(input)}`;
+        const proxyUrl = `https://proxy.cors.sh/${apiUrl}`;
 
+        const response = await fetch(proxyUrl, {
+            method: 'GET',
+            headers: {
+                "Content-Type": 'application/json',
+              
+            }
+        });
 
         if (!response.ok) {
             const errorData = await response.json();
@@ -37,25 +37,25 @@ async function fetchData() {
         }
 
         const data = await response.json();
-        if (data.bypassed == 'Delta bypass hcaptcha patched. We only support links with out hcaptcha.') {
-  resultDiv.textContent = `RESULT: undefined`;
-  showNotification('ERROR FETCHING DATA. PLEASE TRY AGAIN.');
-}
+        if (data.bypassed === 'Delta bypass hcaptcha patched. We only support links with out hcaptcha.') {
+            resultDiv.textContent = `RESULT: undefined`;
+            showNotification('ERROR FETCHING DATA. PLEASE TRY AGAIN.');
+        } else {
+            resultDiv.textContent = `RESULT: ${data.bypassed || 'undefined'}`;
+            showNotification('BYPASSED SUCCESSFULLY!');
+        }
 
-        resultDiv.textContent = `RESULT: ${data.bypassed || 'undefined'}`;
         resultDiv.style.display = 'block';
         copyButton.style.display = 'block'; 
-        showNotification('BYPASSED SUCCESSFULLY!');
         document.getElementById('bypassAgainButton').style.display = 'block'; 
     } catch (error) {
         console.error('Error:', error);
-        resultDiv.textContent = 'RESULT: ERROR HAS FOUND';
+        resultDiv.textContent = 'RESULT: ERROR HAS OCCURRED';
         resultDiv.style.display = 'block';
         copyButton.style.display = 'none'; 
         showNotification('ERROR FETCHING DATA. PLEASE TRY AGAIN.');
     }
 }
-
 
 function copyToClipboard() {
     const resultText = document.getElementById('result').textContent.replace('RESULT: ', '');
@@ -122,4 +122,3 @@ document.getElementById('menuButton').addEventListener('click', () => {
     const menuBar = document.getElementById('menuBar');
     menuBar.classList.toggle('show');
 });
-
