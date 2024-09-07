@@ -1,4 +1,5 @@
 async function fetchData() {
+    const start = Date.now()
     const input = document.getElementById('inputBox').value;
     const resultDiv = document.getElementById('result');
     const copyButton = document.getElementById('copyButton');
@@ -15,7 +16,7 @@ async function fetchData() {
     updateButtonState(true);
 
     try {
-        const apiUrl = `https://otaku-is-unbreakable-api.vercel.app/bypass?url=${encodeURIComponent(input)}`;
+        const apiUrl = `https://otaku-is-unbreakable-api.vercel.app/bypass?url=${input}`;
         const proxyUrl = `https://proxy.cors.sh/${apiUrl}`;
 
         const response = await fetch(proxyUrl, {
@@ -35,14 +36,21 @@ async function fetchData() {
             showNotification('ERROR FETCHING DATA. PLEASE TRY AGAIN.');
             return; 
         }
+        const end = Date.now()
+        const tt = (end - start) / 1000
 
         const data = await response.json();
         if (data.bypassed === 'Delta bypass hcaptcha patched. We only support links with out hcaptcha.') {
             resultDiv.textContent = `RESULT: undefined`;
             showNotification('ERROR FETCHING DATA. PLEASE TRY AGAIN.');
-        } else {
+        } else if (data.bypassed.includes == 'includes') {
+          resultDiv.textContent = `RESULT: undefined`;
+            showNotification('ERROR FETCHING DATA. PLEASE TRY AGAIN.');
+          }
+          else {
             resultDiv.textContent = `RESULT: ${data.bypassed || 'undefined'}`;
             showNotification('BYPASSED SUCCESSFULLY!');
+            showNotification(`TIME TAKEN : ${(tt).toFixed(2)} SECOND(S)`);
         }
 
         resultDiv.style.display = 'block';
@@ -122,3 +130,4 @@ document.getElementById('menuButton').addEventListener('click', () => {
     const menuBar = document.getElementById('menuBar');
     menuBar.classList.toggle('show');
 });
+
