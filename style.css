@@ -148,24 +148,32 @@ button:active {
 
 
 .discord-button {
-    display: block;
-    margin: 20px auto; /* Tạo khoảng cách xung quanh nút Discord */
-    text-align: center;
-    padding: 10px;
-    background-color: #7289da;
-    border-radius: 5px;
-    color: white;
+    display: flex;
+    align-items: center;
+    background: #7289da;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s, transform 0.2s;
+    width: fit-content;
+    margin: 0 auto;
+    bottom: 33.33%;
+    font-size: 1em;
     text-decoration: none;
+    position: relative;
 }
 
 .discord-button img {
-    width: 20px;
-    vertical-align: middle;
-    margin-right: 10px;
-}
-
-.spacer {
-    height: 20px;
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .discord-button:hover {
@@ -359,8 +367,6 @@ button:hover:enabled {
   text-align: center;
   position: fixed;
   bottom: 20px; 
-  margin-top: 20px;
-  text-align: center;
   left: 50%;
   transform: translateX(-50%);
   opacity: 0.8; 
