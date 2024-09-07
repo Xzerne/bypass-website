@@ -16,7 +16,6 @@ async function fetchData() {
 
     try {
         const apiUrl = `https://otaku-is-unbreakable-api.vercel.app/bypass?url=${encodeURIComponent(document.getElementById('inputBox').value)}`;
-        const proxyUrl = `https://proxy.cors.sh/${apiUrl}`
         
         const response = await fetch(proxyUrl, {
     method: 'GET',
