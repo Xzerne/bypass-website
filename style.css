@@ -15,6 +15,37 @@ body {
 }
 
 
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px); /* Optional: Adds a slight upward movement */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+#content, .menu-container, .discord-button {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards; 
+}
+
+
+#content {
+    animation-delay: 0.5s; 
+}
+
+.menu-container {
+    animation-delay: 0.7s;
+}
+
+.discord-button {
+    animation-delay: 0.9s;
+}
+
 
 h1 {
     font-family: 'Zen Kaku Gothic Antique', sans-serif;
@@ -329,7 +360,6 @@ button:hover:enabled {
     transform: scale(0.95);
 }
 
-/*made by*/
 .made-by {
   font-family: 'Roboto', sans-serif; 
   font-size: 12px;
@@ -424,14 +454,4 @@ button:hover:enabled {
     height: 100px;
 }
 
-/* Spotify */
-.spotify-container {
-    text-align: center;
-    margin-top: 50px;
-}
 
-.spotify-container iframe {
-    width: 300px; 
-    height: 200px; 
-    border: none;
-}
