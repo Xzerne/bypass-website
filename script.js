@@ -16,6 +16,7 @@ async function fetchData() {
 
     try {
         const apiUrl = `https://otaku-is-unbreakable-api.vercel.app/bypass?url=${encodeURIComponent(document.getElementById('inputBox').value)}`;
+        const proxyUrl = `https://thingproxy.freeboard.io/fetch/${apiUrl}`;
         
         const response = await fetch(proxyUrl, {
     method: 'GET',
