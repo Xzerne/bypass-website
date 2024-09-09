@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toshun's bio | OTAKU IS UNBREAKABLE</title>
+    <title>Toshun's Credit | OTAKU IS UNBREAKABLE</title>
     <link rel="icon" type="image/png" href="https://i.pinimg.com/736x/d4/89/2d/d4892d8825bdbb43d7a31c4aba1f4446.jpg">
-
     <style>
-        @keyframes fadeIn {
+      @keyframes fadeIn {
     from {
         opacity: 0;
     }
@@ -54,26 +53,26 @@ body {
 
 .container {
     text-align: center;
-    background-color: rgba(54, 57, 63, 0.9); /* Đổi màu nền để có độ trong suốt */
+    background-color: rgba(0, 0, 0, 0.7);
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
     width: 350px;
     max-width: 90%;
     animation: fadeIn 1s ease-out;
 }
 
 .bio-card {
-    background: rgba(47, 49, 54, 0.8); /* Đổi màu nền để có độ trong suốt */
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
     animation: slideIn 1s ease-out;
 }
 
 .bio-card h1 {
-    color: #ffcb05;
+    color: #ff69b4;
     font-size: 2em;
     margin: 0 0 10px 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -82,7 +81,7 @@ body {
 .bio-card p {
     font-size: 1.1em;
     margin: 10px 0;
-    color: #e0e0e0;
+    color: #333333;
 }
 
 .bio-card a {
@@ -121,40 +120,61 @@ body {
     margin-right: auto;
 }
 
-.title {
+@keyframes colorChange {
+    0% {
+        color: #FF6F61;
+    }
+    50% {
+        color: #FF1493;
+    }
+    100% {
+        color: #FF6F61;
+    }
+    50% {
+      color: floralwhite;
+    }
+    50% {
+      color: cornflowerblue;
+    }
+}
+
+.title, .description {
     font-size: 1.2em;
     margin-bottom: 10px;
-    color: #ffffff;
     font-weight: bold;
+    animation: colorChange 3s infinite;
 }
 
 .description {
     font-size: 1em;
     margin-bottom: 20px;
-    color: #b9bbbe;
+    animation: colorChange 3s infinite;
 }
+
 
 .join-discord-button {
     display: inline-block;
-    background-color: #7289da;
+    background-color: #1e90ff; 
     color: #ffffff;
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
     font-size: 1.1em;
     font-weight: bold;
-    border: 2px solid #5b6eae;
+    border: 2px solid #003366; 
     transition: background-color 0.3s ease, transform 0.3s ease;
     animation: pulse 1.5s infinite;
 }
 
 .join-discord-button:hover {
-    background-color: #5b6eae;
+    background-color: #003366;
     transform: scale(1.05);
 }
 
 .join-discord-button:active {
-    background-color: #4a5c8c;
+    background-color: #000033; 
+}
+
 }
 
     </style>
@@ -168,7 +188,7 @@ body {
             <p>DEVELOPER AT OTAKU IS UNBREAKABLE</p>
         </div>
         <div class="invitation">
-            <img src="https://i.pinimg.com/originals/5c/0a/86/5c0a86e18c2a871d48a8ff2fb74fc039.gif" alt="Discord Invite" class="invitation-image">
+            <img src="https://i.pinimg.com/originals/5c/0a/86/5c0a86e18c2a871d48a8ff2fb74fc039.gif" class="invitation-image">
             <div class="title">YOU HAVE BEEN INVITED TO THE SERVER</div>
             <div class="description">OTAKU IS UNBREAKABLE</div>
             <a href="https://discord.com/invite/943rVuWTr7" class="join-discord-button">JOIN</a>
