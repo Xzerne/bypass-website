@@ -6,7 +6,7 @@
     <title>Toshun's Credit | OTAKU IS UNBREAKABLE</title>
     <link rel="icon" type="image/png" href="https://i.pinimg.com/736x/d4/89/2d/d4892d8825bdbb43d7a31c4aba1f4446.jpg">
     <style>
-      @keyframes fadeIn {
+@keyframes fadeIn {
     from {
         opacity: 0;
     }
@@ -38,10 +38,123 @@
     }
 }
 
+@keyframes backgroundAnimation {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+@keyframes shadowPulse {
+    0% {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    }
+    50% {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 1);
+    }
+    100% {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    }
+}
+
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 105, 180, 1);
+    }
+    100% {
+        text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
+    }
+}
+
+@keyframes buttonGlow {
+    0% {
+        box-shadow: 0 0 10px rgba(30, 144, 255, 0.8);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(30, 144, 255, 1);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(30, 144, 255, 0.8);
+    }
+}
+
+@keyframes timeSkipEffect {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+        background-color: transparent;
+    }
+    20% {
+        opacity: 1;
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(213, 0, 119, 0.8), 0 0 30px rgba(213, 0, 119, 0.6) inset;
+        background-color: rgba(213, 0, 119, 0.4);
+    }
+    40% {
+        opacity: 1;
+        transform: scale(1.2);
+        box-shadow: 0 0 30px rgba(213, 0, 119, 1), 0 0 40px rgba(213, 0, 119, 0.8) inset;
+        background-color: rgba(213, 0, 119, 0.6);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(213, 0, 119, 0.8), 0 0 30px rgba(213, 0, 119, 0.6) inset;
+        background-color: rgba(213, 0, 119, 0.4);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(213, 0, 119, 0.6), 0 0 20px rgba(213, 0, 119, 0.4) inset;
+        background-color: rgba(213, 0, 119, 0.2);
+    }
+}
+
+@keyframes floatingDots {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        color: #FF6F61;
+    }
+    50% {
+        color: #FF1493;
+    }
+    100% {
+        color: #FF6F61;
+    }
+    50% {
+      color: floralwhite;
+    }
+    50% {
+      color: cornflowerblue;
+    }
+}
+
+
 body {
     font-family: 'Arial', sans-serif;
-    background: url('https://i.pinimg.com/736x/a8/9c/a4/a89ca474fd720949c283661db03ce7ad.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background: linear-gradient(45deg, rgba(10, 10, 30, 0.8), rgba(20, 20, 50, 0.8));
+    background-size: 200% 200%;
+    animation: backgroundAnimation 10s ease infinite;
     color: #ffffff;
     margin: 0;
     padding: 0;
@@ -49,24 +162,27 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    position: relative;
 }
 
 .container {
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
     width: 350px;
     max-width: 90%;
-    animation: fadeIn 1s ease-out;
+    animation: fadeIn 1s ease-out, shadowPulse 2s infinite, timeSkipEffect 4s infinite;
+    position: relative;
+    z-index: 1;
 }
 
 .bio-card {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     margin-bottom: 20px;
     animation: slideIn 1s ease-out;
 }
@@ -75,13 +191,14 @@ body {
     color: #ff69b4;
     font-size: 2em;
     margin: 0 0 10px 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
+    animation: textGlow 1.5s ease-in-out infinite;
 }
 
 .bio-card p {
     font-size: 1.1em;
     margin: 10px 0;
-    color: #333333;
+    color: #cccccc;
 }
 
 .bio-card a {
@@ -120,24 +237,6 @@ body {
     margin-right: auto;
 }
 
-@keyframes colorChange {
-    0% {
-        color: #FF6F61;
-    }
-    50% {
-        color: #FF1493;
-    }
-    100% {
-        color: #FF6F61;
-    }
-    50% {
-      color: floralwhite;
-    }
-    50% {
-      color: cornflowerblue;
-    }
-}
-
 .title, .description {
     font-size: 1.2em;
     margin-bottom: 10px;
@@ -151,7 +250,6 @@ body {
     animation: colorChange 3s infinite;
 }
 
-
 .join-discord-button {
     display: inline-block;
     background-color: #1e90ff; 
@@ -162,8 +260,8 @@ body {
     font-size: 1.1em;
     font-weight: bold;
     border: 2px solid #003366; 
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    animation: pulse 1.5s infinite;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    animation: pulse 1.5s infinite, buttonGlow 2s infinite;
 }
 
 .join-discord-button:hover {
@@ -175,7 +273,69 @@ body {
     background-color: #000033; 
 }
 
+.floating-dots {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
 }
+
+.floating-dots span {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #d50077;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: floatingDots 4s ease-in-out infinite;
+}
+
+.floating-dots span:nth-child(1) {
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.floating-dots span:nth-child(2) {
+    top: 30%;
+    left: 60%;
+    animation-delay: 1s;
+}
+
+.floating-dots span:nth-child(3) {
+    top: 50%;
+    left: 40%;
+    animation-delay: 2s;
+}
+
+.floating-dots span:nth-child(4) {
+    top: 70%;
+    left: 80%;
+    animation-delay: 3s;
+}
+
+.floating-dots span:nth-child(5) {
+  top: 20%;
+  left: 40%;
+  animation-delay: 3s;
+}
+
+.floating-dots span:nth-child(6) {
+  top: 40%;
+  left: 60%;
+  animation-delay: 3s;
+}
+
+.floating-dots span:nth-child(7) {
+  top: 50%;
+  left: 50%;
+  animation-delay: 3s;
+}
+
+
 
     </style>
 </head>
@@ -194,5 +354,33 @@ body {
             <a href="https://discord.com/invite/943rVuWTr7" class="join-discord-button">JOIN</a>
         </div>
     </div>
+    <div class="floating-dots">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span>
+    </span>
+    <span></span>
+    <span></span>
+    
+</div>
+
+
+    
+      <audio id="jojorefrence" loop>
+  <source src="JoJo Golden Wind OP 3 - Uragirimono No Requiem .mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio> 
+
+<script>
+  document.body.addEventListener('click', function() {
+            var audio = document.getElementById('jojorefrence');
+            audio.play().catch(function(error) {
+                console.log('Error When Trying To Play Music : ' + error);
+            });
+        });
+</script>
 </body>
 </html>
+
