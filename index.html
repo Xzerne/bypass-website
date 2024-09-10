@@ -6,6 +6,7 @@
     <title>OTAKU IS UNBREAKABLE | BYPASS</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="https://i.pinimg.com/736x/d4/89/2d/d4892d8825bdbb43d7a31c4aba1f4446.jpg">
+
 </head>
 <body>
         <div class="menu-container">
@@ -65,13 +66,26 @@
         </div>
         <span class="made-by">MADE BY thanhtai040312@gmail.com</span>
     </div>
-    <div class="spotify-container">
-        <iframe src="https://open.spotify.com/embed/playlist/4lddYguSeDyDNwRgeInXkg" 
-                frameborder="0" 
-                allowtransparency="true" 
-                allow="encrypted-media">
-        </iframe>
+    
+     <audio id="kiminitodoke" loop>
+  <source src="MAIN MUSIC | KIMI NI TODOKE .mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio> 
 
+
+
+
+    
     <script src="script.js"></script>
+    <script>
+      document.body.addEventListener('click', function() {
+            var audio = document.getElementById('kiminitodoke');
+            audio.play().catch(function(error) {
+                console.log('Error When Trying To Play Music : ' + error);
+            });
+        });
+    </script>
 </body>
 </html>
+
+
