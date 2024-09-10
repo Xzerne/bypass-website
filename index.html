@@ -67,21 +67,19 @@
         <span class="made-by">MADE BY thanhtai040312@gmail.com</span>
     </div>
     
-     <audio id="kiminitodoke" loop>
-  <source src="MAIN MUSIC | KIMI NI TODOKE .mp3" type="audio/mp3">
-  Your browser does not support the audio element.
-</audio> 
+    <audio id="backgroundMusic" loop>
+        <source src="" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
 
-
-
-
-    
     <script src="script.js"></script>
     <script>
-      document.body.addEventListener('click', function() {
-            var audio = document.getElementById('kiminitodoke');
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('backgroundMusic');
+            audio.src = 'MAIN MUSIC | KIMI NI TODOKE .mp3'; // URL to the audio file
             audio.play().catch(function(error) {
-                console.log('Error When Trying To Play Music : ' + error);
+                console.log('Error When Trying To Play Music: ' + error);
             });
         });
     </script>
